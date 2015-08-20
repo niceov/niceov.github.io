@@ -11,7 +11,7 @@ install.packages('polycor')
 install.packages('boot')
 
 이훈영 교수의 통계학 제3판
-![](image\\f16-1.jpg)
+![](image/f16-1.jpg)
 
 ```{r}
 library(ggplot2, warn.conflicts = FALSE)
