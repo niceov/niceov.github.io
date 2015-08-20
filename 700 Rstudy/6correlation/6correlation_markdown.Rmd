@@ -1,0 +1,73 @@
+---
+title: "6correlation"
+output: html_document
+---
+t-value table은 968page에
+
+install.packages('ggplot2')
+install.packages('Hmisc')
+install.packages('ggm')
+install.packages('polycor')
+install.packages('boot')
+
+이훈영 교수의 통계학 제3판
+![](image\\f16-1.jpg)
+
+```{r}
+library(ggplot2, warn.conflicts = FALSE)
+library(ggm, warn.conflicts = FALSE)
+library(Hmisc, warn.conflicts = FALSE)
+library(polycor, warn.conflicts = FALSE)
+library(boot, warn.conflicts = FALSE)
+library(Rcmdr, warn.conflicts = FALSE)
+```
+
+
+RBGL이 없다고 뜨는 경우
+source("http://bioconductor.org/biocLite.R"); biocLite(c("graph","RBGL","Rgraphviz"))
+
+```{r}
+adverts = c(5,4,4,6,8)
+packets = c(8,9,10,13,15)
+advertData = data.frame(adverts, packets)
+
+a = ggplot(advertData, aes(adverts, packets))
+a + geom_point()
+```
+
+
+```
+E = read.delim("6correlation data\\Exam Anxiety.dat", header = T)
+head(E)
+
+###cor(E, use = 'complete.obs', method = 'pearson') #error
+cor(E$Exam, E$Anxiety, use = 'complete.obs', method = 'pearson')
+cor(E$Exam, E$Anxiety, use = 'complete.obs', method = 'kendall')
+cor(E$Exam, E$Anxiety, use = 'pairwise.complete.obs', method = 'kendall')
+
+rcorr(E$Exam, E$Anxiety, type = 'pearson')
+###rcorr(E, type = 'pearson') #error
+
+cor.test(E$Exam, E$Anxiety, method = 'pearson')
+cor.test(E$Exam, E$Anxiety, alternative = 'less', method = 'pearson')
+cor.test(E$Exam, E$Anxiety, alternative = 'less', method = 'pearson', conf.level = .99)
+
+E2 = E[,c('Revise', 'Exam', 'Anxiety')]
+cor(E2)
+
+EMatrix = as.matrix(E[,c('Revise', 'Exam', 'Anxiety')])
+rcorr(EMatrix)
+```
+p값은 n에 따라서 그 이해가 달라질 수 있으므로 크게 신경 안 써도 됨.```
+
+
+
+
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
