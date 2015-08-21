@@ -5,7 +5,12 @@ output: html_document
 ##20150826. by niceov@gmail.com
 
 
+<<<<<<< HEAD
 ####[네이버 지식백과] 상관계수 [correlation coefficient] (교육평가용어사전, 2004. 5. 31., 학지사)
+=======
+이훈영 교수의 통계학 제3판
+![](image/f16-1.jpg)
+>>>>>>> origin/master
 
 표준화된 두 변수 간의 공변하는 관계를 나타내는 통계량이다. 일반적으로는 영국의 통계학자 피어슨(K. Pearson, 1857-1936)이 개발한 피어슨 적률상관계수(product moment correlation)를 가리키는 명칭이다. 이것은 선형적 관계를 나타내며 －1과 ＋1 사이에 있고 아래의 공식으로 계산된다.
 
